@@ -30,13 +30,13 @@ fun main(args: Array<String>) {
     val className = parser.getOptionValue("class")
     val methodName = parser.getOptionValue("method")
     val classPath = parser.getOptionValue("classpath")
-    val timeout = parser.getOptionValue("timeout")?.toLong() ?: 10L
+    val timeout = parser.getOptionValue("timeout")?.toLong() ?: 60L
     val seed = parser.getOptionValue("seed")?.toInt() ?: Random.nextInt()
     val random = Random(seed)
 
     println("Running: $className.$methodName) with seed = $seed")
     val errors = mutableSetOf<String>()
-    val b = ByteArray(300)
+    val b = ByteArray(500)
     val start = System.nanoTime()
 
     val javaMethod = try {
